@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Mantou+Sans&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <title>#柚香梨子特調</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg custom-navbar">
+      <div class="container-fluid">
+        <!-- 左邊品牌區 -->
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img src="img/IMG_4409.PNG" width="80" height="80" class="d-inline-block align-text-top me-2" />
+          <div>
+            <p class="text-retro">#柚香梨子特調</p>
+            <small class="text-muted d-block">Citrus Blossom</small>
+          </div>
+        </a>
+
+        <!-- 漢堡選單按鈕（小螢幕用） -->
+        <!-- <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button> -->
+
+        <!-- 右邊選單 -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                侑里設定集
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">#宮侑</a></li>
+                <li><a class="dropdown-item" href="#">#霧島灯里</a></li>
+                <li><a class="dropdown-item" href="#">#其他設定</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#diary">跨次元日記</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#dream">清醒夢</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="home" id="home">
+      <img src="img/IMG_9401.PNG" />
+      <h3 class="text-retro">#柚香梨子特調</h3>
+    </div>
+
+    <div class="setting" id="setting">
+      <h3 class="text-retro">#侑里設定集</h3>
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/intro/miya_intro.jpg" class="d-block w-100" />
+          </div>
+          <div class="carousel-item">
+            <img src="img/intro/akari_intro.jpg" class="d-block w-100" />
+          </div>
+          <!-- <div class="carousel-item">
+            <img src="..." class="d-block w-100" />
+          </div> -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="diary" id="diary">
+      <h3 class="text-retro">#跨次元日記</h3>
+      <div class="diary-box">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">札幌</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">others</a>
+          </li>
+        </ul>
+
+        <div class="tab-content p-3">
+          <div class="tab-pane fade show active">
+            <!-- 放照片和解釋 -->
+            <div class="row" data-masonry='{"percentPosition": true }'>
+              <div class="col-sm-6 col-lg-4 mb-4">
+                <div class="card">
+                  <img src="img/autumn.jpg" class="card-img-top" alt="..." />
+                  <div class="card-body"><p>文字說明1</p></div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-4 mb-4">
+                <div class="card">
+                  <img src="img/Frame.png" class="card-img-top" alt="..." />
+                  <div class="card-body"><p>文字說明2</p></div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-lg-4 mb-4">
+                <div class="card">
+                  <img src="img/99BC2D60-77F8-45C8-8FE9-07418907B0E7.jpeg" class="card-img-top" alt="..." />
+                  <div class="card-body"><p>文字說明3</p></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dream" id="dream">
+      <h3 class="text-retro">#清醒夢</h3>
+
+      <div class="blog-card">
+        <div class="meta">
+          <div class="photo" style="background-image: url('img/autumn.jpg')"></div>
+        </div>
+        <div class="description">
+          <h1>私奔要在日出時</h1>
+          <h2>©Snow Ball</h2>
+          <p>
+            「如果我們見上一面只需要一台腳踏車、一輛汽車、一張特急券、一張船票甚至一張機票，那麼我想都不足有獲得一張太陽神11號的登艙證件來得困難。」
+          </p>
+        </div>
+      </div>
+
+      <div class="blog-card alt">
+        <div class="meta">
+          <div class="photo" style="background-image: url('img/99BC2D60-77F8-45C8-8FE9-07418907B0E7.jpeg')"></div>
+        </div>
+        <div class="description">
+          <h1>倦鳥歸林</h1>
+          <h2>©黃謙</h2>
+          <p>
+            我們之間再親密也隔著一層薄薄的膜，我看見你承擔的所有痛苦卻無法伸手做你的宙斯。然後轟地一聲，你把自己還給宇宙，你再也不留給我能看你一眼的機會。
+          </p>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="meta">
+          <div class="photo" style="background-image: url('img/IMG_3960.PNG')"></div>
+        </div>
+        <div class="description">
+          <h1>雪花降落在因特拉肯</h1>
+          <h2>©奧恩</h2>
+          <p>
+            「如果我們見上一面只需要一台腳踏車、一輛汽車、一張特急券、一張船票甚至一張機票，那麼我想都不足有獲得一張太陽神11號的登艙證件來得困難。
+          </p>
+        </div>
+      </div>
+
+      <div class="blog-card alt">
+        <div class="meta">
+          <div class="photo" style="background-image: url('img/IMG_7250.jpg')"></div>
+        </div>
+        <div class="description">
+          <h1>等會兒見</h1>
+          <h2>©黃謙</h2>
+          <p>
+            對視是一瞬間的事卻如影隨形地跟著我一輩子。在那樣風和日麗的瞬間，喧騰的世界裡有陽光穿過樹葉的縫隙映在彼此臉上，我第一次覺得光斑打下來如同某種形式的神諭，好像身處叢叢綠葉遮掩的教堂裡被陽光祝福，在那個瞬間我們能看見的只有彼此的臉，我成為他剎那的整個世界。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer>©acariexe 2025</footer>
+
+    <!-- Bootstrap JS（漢堡選單需要） -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  </body>
+</html>
