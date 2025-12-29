@@ -125,6 +125,7 @@ body {
 @media (max-width: 600px) {
     .main-image img { width: 250px; }
     .content-img { width: 350px; }
+    .wrapper-image img {width: 150px;}
     .footer-nav { display: none; } /* 手機版建議隱藏下方目錄，改用頂部導覽 */
     .main-navbar { opacity: 1 !important; padding: 15px 20px; } /* 手機版直接顯示 Navbar */
 }
