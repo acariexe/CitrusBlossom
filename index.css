@@ -61,6 +61,18 @@ body {
 .content-img {
     width: 800px;
     height: auto;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.content-img-small {
+    width: 200px;
+    height: auto;
+}
+
+/* 加上滑鼠移上去稍微放大的效果，讓使用者知道可以點 */
+.clickable:hover {
+    transform: scale(1.02);
+    filter: brightness(0.9); /* 稍微變暗一點 */
 }
 
 /* 你原本的標題樣式 */

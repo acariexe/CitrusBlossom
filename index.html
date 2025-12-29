@@ -112,8 +112,9 @@
 
       <section id="miyakiri" class="full-page sub-page">
         <div class="content-box">
-          <h2>miyakari</h2>
-          <img class="content-img" src="img/akari.png" />
+          <h2>𝖒𝖎𝖞𝖆𝖐𝖎𝖗𝖎</h2>
+          <p>：遺留檔案袋一份，祝好運。</p>
+          <img id="switch-img" class="content-img clickable" src="img/akari.png" style="cursor: pointer" />
         </div>
       </section>
 
@@ -128,7 +129,9 @@
       <section id="moments" class="full-page sub-page">
         <div class="content-box">
           <h2>moments</h2>
-          <p>這裡是關於 moments 的內容...</p>
+          <a href="https://flossy-buckthorn-525.notion.site/2706438ead968165bc32f7f1c0757038?source=copy_link"
+            ><img class="content-img-small" src="img/小飯糰.png"
+          /></a>
         </div>
       </section>
     </div>
@@ -199,6 +202,32 @@
           }
         }
       };
+
+      // 1. 定義圖片清單 (請根據你資料夾內的檔名修改)
+      const imageList = [
+        "img/behavior.png",
+        "img/photo.png", // 替換成你的第二張圖
+        "img/idCard.png", // 替換成你的第三張圖
+      ];
+
+      let currentIndex = 0; // 目前顯示的圖片索引
+      const targetImg = document.getElementById("switch-img");
+
+      // 2. 監聽點擊事件
+      targetImg.addEventListener("click", () => {
+        // 計算下一張圖片的索引 (用餘數運算確保循環)
+        currentIndex = (currentIndex + 1) % imageList.length;
+
+        // 增加一個淡出的特效 (選配，提升設計感)
+        targetImg.style.opacity = "0";
+
+        setTimeout(() => {
+          // 切換圖片路徑
+          targetImg.src = imageList[currentIndex];
+          // 重新淡入
+          targetImg.style.opacity = "1";
+        }, 200); // 這裡的毫秒數要跟 CSS 的 transition 對應
+      });
     </script>
   </body>
 </html>
