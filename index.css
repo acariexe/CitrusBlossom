@@ -106,6 +106,7 @@ body {
 /* 手機版 RWD */
 @media (max-width: 600px) {
     .main-image img { width: 250px; }
+    .content-img { width: 250px; }
     .footer-nav { display: none; } /* 手機版建議隱藏下方目錄，改用頂部導覽 */
     .main-navbar { opacity: 1 !important; padding: 15px 20px; } /* 手機版直接顯示 Navbar */
 }
