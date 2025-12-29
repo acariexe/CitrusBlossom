@@ -66,21 +66,36 @@ body, html {
     height: auto;
 }
 
-/* 底部連結 */
+/* Footer 整體排版 */
 .controls {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* 讓左右兩端對齊 */
+    align-items: flex-end; /* 底部對齊 */
     width: 100%;
-    padding-bottom: 20px;
 }
 
-.nav-link {
+/* 右側目錄排版 */
+.footer-right {
+    text-align: right;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 20px; /* 每個目錄文字間的距離 */
+}
+
+.nav-link,
+.footer-link {
     color: #6979a1;
-    font-size: 2rem;
+    font-size: 1.2rem; /* 尺寸比 play 稍微小一點，更有層次感 */
     font-weight: bold;
     text-decoration: none;
-    cursor: pointer;
     text-transform: lowercase;
+    transition: opacity 0.3s;
+}
+
+.footer-link:hover {
+    opacity: 0.6; /* 滑鼠移入時的視覺回饋 */
 }
 
 /* 響應式微調：手機版縮小字體 */
@@ -88,4 +103,10 @@ body, html {
     .title { font-size: 1.8rem; }
     .nav-link { font-size: 1.5rem; }
     .social-links { font-size: 1.5rem; }
+    .footer-nav {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+    .footer-link { font-size: 1rem; }
 }
