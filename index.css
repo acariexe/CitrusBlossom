@@ -94,7 +94,7 @@ body {
 }
 
 .wrapper p {
-    padding: 20px 0;
+    padding-top: 20px;
 }
   
 
@@ -130,27 +130,31 @@ body {
 
 /* 手機版 RWD */
 @media (max-width: 600px) {
+    header {
+        padding-top: 60px;
+    }
     .full-page {
         padding: 60px 20px;
     }
-    .main-image img { width: 250px; }
+    .main-image img { width: 250px; padding-left: 10px;}
     .content-img { width: 350px; }
     .wrapper-image img {
-        max-width: 280px;
-      }
+        max-width: 150px;
+    }
 
     .wrapper-text h2 {
-        font-size: 1.6rem;
+        font-size: 15px;
     }
     .footer-nav { display: none; } /*手機版建議隱藏下方目錄，改用頂部導覽*/
     .main-navbar { opacity: 1 !important; padding: 15px 20px; } /*手機版直接顯示 Navbar*/
     .wrapper-text p {
-        font-size: 0.95rem;
-        line-height: 1.8;
-        letter-spacing: 0.5px;
+        font-size: 8px;
     }
     .wrapper {
         gap: 24px;
-      }
+    }
+    .wrapper p {
+        padding-top: 10px;
+    }
 
 }
