@@ -52,6 +52,17 @@ body {
 
 .sub-page { background-color: #f9f9f9; } /* 內頁稍微換個背景色做區隔 */
 
+.content-box p {
+    padding-bottom: 10px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.content-img {
+    width: 800px;
+    height: auto;
+}
+
 /* 你原本的標題樣式 */
 .title { font-size: 2.5rem; color: var(--primary-color); text-align: center; }
 .subtitle { font-size: 1.5rem; margin-top: 5px; text-align: center; font-weight: bold;}
