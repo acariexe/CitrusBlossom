@@ -114,6 +114,7 @@ body {
     text-transform: lowercase;
 }
 .footer-nav { display: flex; gap: 25px; }
+.footer-left a { text-decoration: none;}
 
 /* 為了讓 Footer 變換內容時有平滑感 */
 #footer-dynamic {
