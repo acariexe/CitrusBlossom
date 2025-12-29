@@ -10,41 +10,161 @@
   </head>
 
   <body>
-    <div class="container">
-      <header>
-        <h1 class="title">Citrus Blossom
-        <p class="subtitle">#miyakiri</p>
-      </header>
+    <nav class="main-navbar" id="top-nav">
+      <div class="nav-container">
+        <a href="#home"><img src="img/IMG_4409.PNG" alt="icon" class="nav-icon" /></a>
 
-      <main class="content">
-        <div class="social-links">
-          <a href="https://www.facebook.com/acariexe/"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://acariexe.carrd.co/"><i class="fa-regular fa-address-card"></i></a>
+        <div class="nav-menu">
+          <a href="#atsumu">atsumu</a>
+          <a href="#akari">akari</a>
+          <a href="#miyakiri">miyakiri</a>
+          <a href="#timeline">timeline</a>
+          <a href="#moments">moments</a>
         </div>
-        <div class="main-image">
-          <img src="img/IMG_7250.jpg" alt="eyes are loud." />
-        </div>
-      </main>
-
-      <footer>
-        <div class="controls">
-          <div class="footer-left">
-              <span id="play-btn" class="nav-link">play</span>
-          </div>
-  
-          <div class="footer-right">
-              <nav class="footer-nav">
-                  <a href="#atsumu" class="footer-link">atsumu</a>
-                  <a href="#akari" class="footer-link">akari</a>
-                  <a href="#miyakiri" class="footer-link">miyakiri</a>
-                  <a href="#timeline" class="footer-link">timeline</a>
-                  <a href="#moments" class="footer-link">moments</a>
-              </nav>
-          </div>
       </div>
-      </footer>
+    </nav>
+
+    <div id="player" style="display: none"></div>
+
+    <div class="scroll-wrapper">
+      <section id="home" class="full-page">
+        <header>
+          <h1 class="title">Citrus Blossom</h1>
+          <p class="subtitle">#miyakiri</p>
+        </header>
+
+        <main class="content">
+          <div class="social-links">
+            <a href="https://www.facebook.com/acariexe/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://acariexe.carrd.co/" target="_blank"><i class="fa-regular fa-address-card"></i></a>
+          </div>
+          <div class="main-image">
+            <img src="img/IMG_7250.jpg" alt="eyes are loud." />
+          </div>
+        </main>
+      </section>
+
+      <section id="atsumu" class="full-page sub-page">
+        <div class="content-box">
+          <h2>atsumu</h2>
+          <p>這裡是關於 atsumu 的內容...</p>
+        </div>
+      </section>
+
+      <section id="akari" class="full-page sub-page">
+        <div class="content-box">
+          <h2>akari</h2>
+          <p>這裡是關於 akari 的內容...</p>
+        </div>
+      </section>
     </div>
 
-    <script></script>
+    <footer class="persistent-footer">
+      <div class="controls">
+        <div class="footer-left">
+          <span id="play-btn" class="nav-link">play</span>
+        </div>
+        <div class="footer-right" id="footer-dynamic">
+          <nav class="footer-nav">
+            <a href="#atsumu" class="footer-link">atsumu</a>
+            <a href="#akari" class="footer-link">akari</a>
+            <a href="#miyakiri" class="footer-link">miyakiri</a>
+            <a href="#timeline" class="footer-link">timeline</a>
+            <a href="#moments" class="footer-link">moments</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // YouTube API 邏輯 (請填入你的影片 ID)
+      var tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player("player", {
+          height: "0",
+          width: "0",
+          videoId: "你的影片ID",
+          playerVars: { playsinline: 1, controls: 0 },
+          events: { onReady: onPlayerReady },
+        });
+      }
+
+      function onPlayerReady(event) {
+        const playBtn = document.getElementById("play-btn");
+        playBtn.addEventListener("click", () => {
+          const state = player.getPlayerState();
+          if (state === 1) {
+            player.pauseVideo();
+            playBtn.innerText = "play";
+          } else {
+            player.playVideo();
+            playBtn.innerText = "pause";
+          }
+        });
+      }
+
+      // Navbar 捲動顯示邏輯
+      window.onscroll = function () {
+        const nav = document.getElementById("top-nav");
+        if (window.pageYOffset > 300) {
+          // 捲動超過 300px 才出現
+          nav.style.opacity = "1";
+        } else {
+          nav.style.opacity = "0";
+        }
+      };
+
+      // 取得導覽列與 Footer 動態區域
+      const nav = document.getElementById("top-nav");
+      const footerDynamic = document.getElementById("footer-dynamic");
+
+      // 預先準備好目錄的 HTML 代碼 (把原本 HTML 裡那段複製過來)
+      const menuHtml = `
+    <nav class="footer-nav">
+        <a href="#atsumu" class="footer-link">atsumu</a>
+        <a href="#akari" class="footer-link">akari</a>
+        <a href="#miyakiri" class="footer-link">miyakiri</a>
+        <a href="#timeline" class="footer-link">timeline</a>
+        <a href="#moments" class="footer-link">moments</a>
+    </nav>`;
+
+      // 準備好版權文字
+      const copyrightHtml = `<span class="copyright-text">(c) acariexe 2025</span>`;
+
+      window.onscroll = function () {
+        if (window.pageYOffset > 300) {
+          // 1. 顯示 Navbar
+          nav.style.opacity = "1";
+          nav.style.pointerEvents = "auto"; // 讓 Navbar 可以點擊
+
+          // 2. 變換 Footer 為版權資訊
+          if (footerDynamic.innerHTML !== copyrightHtml) {
+            footerDynamic.style.opacity = "0"; // 先淡出
+            setTimeout(() => {
+              footerDynamic.innerHTML = copyrightHtml;
+              footerDynamic.style.opacity = "1"; // 替換後淡入
+            }, 300);
+          }
+        } else {
+          // 1. 隱藏 Navbar
+          nav.style.opacity = "0";
+          nav.style.pointerEvents = "none"; // 防止隱藏時點到
+
+          // 2. 變換 Footer 回到目錄
+          if (footerDynamic.innerHTML !== menuHtml) {
+            footerDynamic.style.opacity = "0";
+            setTimeout(() => {
+              footerDynamic.innerHTML = menuHtml;
+              footerDynamic.style.opacity = "1";
+            }, 300);
+          }
+        }
+      };
+    </script>
   </body>
 </html>

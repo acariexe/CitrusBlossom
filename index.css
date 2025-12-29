@@ -1,112 +1,100 @@
-/* 基本設定 */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --primary-color: #6979a1;
 }
 
-body, html {
-    height: 100%;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; } /* 讓跳轉分頁時變平滑捲動 */
+
+body {
     font-family: Arial, sans-serif;
     background-color: #fff;
-    overflow: hidden; /* 防止捲動，維持單頁感 */
+    color: var(--primary-color);
 }
 
-.container {
+/* Navbar 設定 */
+.main-navbar {
+    position: fixed;
+    top: 0; width: 100%;
+    padding: 20px 50px;
+    z-index: 1000;
+    opacity: 0; /* 初始隱藏 */
+    transition: opacity 0.5s ease;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.nav-container { display: flex; justify-content: space-between; align-items: center;}
+.nav-logo, .nav-menu a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 20px;
+    text-transform: lowercase;
+    align-items: center;
+}
+
+/* Navbar 圖片樣式 */
+.nav-icon {
+    width: 50px; /* 依照你的圖示比例調整 */
+    height: auto;
+    align-items: center;
+}
+
+/* 區塊設定 */
+.full-page {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 40px;
-    text-align: center;
-}
-
-/* 頂部標題 */
-.title {
-    color: #6979a1;
-    font-size: 2.5rem;
-    font-weight: bold;
-    line-height: 1.2;
-    letter-spacing: 1px;
-}
-
-.subtitle {
-    color: #6979a1;
-    font-size: 1.5rem;
-    line-height: 1.2;
-    letter-spacing: 1px;
-}
-
-/* 中間圖片與社群圖示 */
-.content {
-    position: relative;
-    display: flex;
     justify-content: center;
     align-items: center;
-    flex-grow: 1;
-    
+    padding: 40px;
 }
 
-.social-links {
-    position: absolute;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    font-size: 2rem;
-}
+.sub-page { background-color: #f9f9f9; } /* 內頁稍微換個背景色做區隔 */
 
-.social-links a {
-    color: #6979a1;
+/* 你原本的標題樣式 */
+.title { font-size: 2.5rem; color: var(--primary-color); text-align: center; }
+.subtitle { font-size: 1.5rem; margin-top: 5px; text-align: center; font-weight: bold;}
+
+/* 圖片與社群連結 */
+.content { position: relative; width: 100%; display: flex; justify-content: center; align-items: center; flex-grow: 1; }
+.social-links { position: absolute; left: 0; display: flex; flex-direction: column; gap: 20px; font-size: 1.5rem; }
+.social-links a { color: var(--primary-color); }
+.main-image img { width: 600px; height: auto; } /* 這裡調電腦版大小 */
+
+/* Footer */
+.persistent-footer {
+    position: fixed;
+    bottom: 0; width: 100%;
+    padding: 40px;
+    z-index: 999;
+}
+.controls { display: flex; justify-content: space-between; align-items: flex-end; }
+.nav-link, .footer-link {
+    color: var(--primary-color);
     text-decoration: none;
-}
-
-.main-image img {
-    max-width: 600px; /* 根據圖片大小調整 */
-    height: auto;
-}
-
-/* Footer 整體排版 */
-.controls {
-    display: flex;
-    justify-content: space-between; /* 讓左右兩端對齊 */
-    align-items: flex-end; /* 底部對齊 */
-    width: 100%;
-}
-
-/* 右側目錄排版 */
-.footer-right {
-    text-align: right;
-}
-
-.footer-nav {
-    display: flex;
-    gap: 20px; /* 每個目錄文字間的距離 */
-}
-
-.nav-link,
-.footer-link {
-    color: #6979a1;
-    font-size: 1.2rem; /* 尺寸比 play 稍微小一點，更有層次感 */
     font-weight: bold;
-    text-decoration: none;
+    font-size: 1.2rem;
     text-transform: lowercase;
-    transition: opacity 0.3s;
+}
+.footer-nav { display: flex; gap: 25px; }
+
+/* 為了讓 Footer 變換內容時有平滑感 */
+#footer-dynamic {
+    transition: opacity 0.3s ease;
 }
 
-.footer-link:hover {
-    opacity: 0.6; /* 滑鼠移入時的視覺回饋 */
+/* 版權文字樣式 (稍後 JS 會動態加入) */
+.copyright-text {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: normal;
+    text-transform: none;
 }
 
-/* 響應式微調：手機版縮小字體 */
+/* 手機版 RWD */
 @media (max-width: 600px) {
-    .title { font-size: 1.8rem; }
-    .nav-link { font-size: 1.5rem; }
-    .social-links { font-size: 1.5rem; }
-    .footer-nav {
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        gap: 10px;
-    }
-    .footer-link { font-size: 1rem; }
+    .main-image img { width: 250px; }
+    .footer-nav { display: none; } /* 手機版建議隱藏下方目錄，改用頂部導覽 */
+    .main-navbar { opacity: 1 !important; padding: 15px 20px; } /* 手機版直接顯示 Navbar */
 }
