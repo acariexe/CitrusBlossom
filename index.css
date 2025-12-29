@@ -73,6 +73,24 @@ body {
 .social-links a { color: var(--primary-color); }
 .main-image img { width: 600px; height: auto; } /* 這裡調電腦版大小 */
 
+.wrapper {
+    display: flex;
+    align-items: center;   /* 垂直置中，可自行拿掉 */
+    gap: 40px;             /* 左右間距 */
+    margin: 0 auto; 
+}
+  
+.wrapper-image img {
+    width: 400px;          /* 自行調整 */
+    height: auto;
+    border-radius: 12px;   /* 可有可無 */
+}
+  
+.wrapper-text {
+    flex: 1;               /* 文字區撐滿剩餘空間 */
+}
+  
+
 /* Footer */
 .persistent-footer {
     position: fixed;
@@ -106,7 +124,7 @@ body {
 /* 手機版 RWD */
 @media (max-width: 600px) {
     .main-image img { width: 250px; }
-    .content-img { width: 250px; }
+    .content-img { width: 350px; }
     .footer-nav { display: none; } /* 手機版建議隱藏下方目錄，改用頂部導覽 */
     .main-navbar { opacity: 1 !important; padding: 15px 20px; } /* 手機版直接顯示 Navbar */
 }
