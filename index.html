@@ -27,8 +27,8 @@
     <div class="scroll-wrapper">
       <section id="home" class="full-page">
         <header>
-          <h1 class="title">Citrus Blossom</h1>
-          <p class="subtitle">#miyakiri</p>
+          <h1 class="title">𝒞𝒾𝓉𝓇𝓊𝓈 𝐵𝓁𝑜𝓈𝓈𝑜𝓂</h1>
+          <p class="subtitle">#𝘮𝘪𝘺𝘢𝘬𝘢𝘳𝘪</p>
         </header>
 
         <main class="content">
@@ -84,21 +84,34 @@
         <div class="content-box">
           <h2>moments</h2>
           <p>滾燙的淚珠順著哽咽滑落。</p>
-          <div class="wrapper">
-            <!-- 左邊 -->
-            <div>
-              <a href="#"><img class="content-img-small" src="img/小飯糰.png" /></a>
-              <p>施工中！</p>
+          <div class="card-stack" id="moments-gallery">
+            <div class="card" onclick="nextCard(this)" data-link="https://link1.com">
+              <img src="img/IMG_3960.PNG" alt="moment1" />
+              <div class="card-caption">熱戀馬特洪峰</div>
             </div>
-
-            <!-- 右邊 -->
-            <div>
-              <a href="https://flossy-buckthorn-525.notion.site/2706438ead968165bc32f7f1c0757038?source=copy_link"
-                ><img class="content-img-small" src="img/小飯糰_xmas.png"
-              /></a>
-              <p>all</p>
+            <div class="card" onclick="nextCard(this)" data-link="https://link2.com">
+              <img src="img/autumn.jpg" alt="moment 2" />
+              <div class="card-caption">私奔要在日出時</div>
+            </div>
+            <div
+              class="card final-card"
+              onclick="window.open('https://flossy-buckthorn-525.notion.site/2706438ead968165bc32f7f1c0757038?source=copy_link', '_blank')"
+            >
+              <div class="view-all-content">
+                <span>VIEW ALL<br />MOMENTS</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </div>
             </div>
           </div>
+
+          <a
+            id="moment-link-btn"
+            href="https://flossy-buckthorn-525.notion.site/2706438ead96808aade3f74e255f9a07?source=copy_link"
+            target="_blank"
+            class="nav-link"
+            style="margin-top: 30px; display: inline-block"
+            >read full story</a
+          >
         </div>
       </section>
     </div>
@@ -195,6 +208,27 @@
           targetImg.style.opacity = "1";
         }, 200); // 這裡的毫秒數要跟 CSS 的 transition 對應
       });
+
+      function nextCard(cardElement) {
+        // 1. 執行滑開動畫
+        cardElement.classList.add("flipped");
+
+        // 2. 找到下一張卡片並獲取它的連結
+        const cards = document.querySelectorAll(".card:not(.flipped)");
+        const btn = document.getElementById("moment-link-btn");
+
+        if (cards.length > 0) {
+          // 更新按鈕連結為目前最上面那張卡片的 data-link
+          const nextLink = cards[0].getAttribute("data-link");
+          if (nextLink) {
+            btn.href = nextLink;
+            btn.style.opacity = "1";
+          } else {
+            // 如果是最後一張(View All)，隱藏下方按鈕
+            btn.style.opacity = "0";
+          }
+        }
+      }
     </script>
   </body>
 </html>
