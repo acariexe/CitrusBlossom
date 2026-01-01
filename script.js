@@ -94,12 +94,3 @@ function nextCard(cardElement) {
     }
   }
 }
-
-// // 4. intro
-// function toggleText() {
-//   // 只在手機版尺寸下執行 (寬度小於 600px 時)
-//   if (window.innerWidth <= 600) {
-//     const wrapper = document.getElementById("atsumu-wrapper");
-//     wrapper.classList.toggle("active");
-//   }
-// }
