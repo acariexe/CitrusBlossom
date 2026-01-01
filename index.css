@@ -4,7 +4,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; } /* 讓跳轉分頁時變平滑捲動 */
+html { scroll-behavior: smooth; overflow-x: hidden !important; /* 強制封鎖全站橫向捲軸 */} /* 讓跳轉分頁時變平滑捲動 */
 
 body {
     font-family: Arial, sans-serif;
